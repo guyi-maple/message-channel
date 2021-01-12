@@ -3,7 +3,9 @@ package tech.guyi.component.channel;
 import lombok.Getter;
 import tech.guyi.component.channel.handler.OnChannelHandler;
 import tech.guyi.component.channel.handler.OnMessageHandler;
+import tech.guyi.component.channel.message.Message;
 
+import java.net.InetSocketAddress;
 import java.util.function.Function;
 
 /**
@@ -46,6 +48,14 @@ public class MessageChannelOption<T> {
      * 是否启用UDP
      */
     public static final MessageChannelOption<Boolean> ENABLE_UDP = valueOf("ENABLE_UDP");
+    /**
+     * 树状消息管道上级地址
+     */
+    public static final MessageChannelOption<InetSocketAddress> TREE_PARENT_ADDRESS = valueOf("TREE_PARENT_ADDRESS");
+    /**
+     * 排除自身发送的UDP消息
+     */
+    public static final MessageChannelOption<Function<Message,Boolean>> EXCLUDE_SELF_UDP_MESSAGE = valueOf("TREE_PARENT_ADDRESS");
 
     /**
      * 创建配置项

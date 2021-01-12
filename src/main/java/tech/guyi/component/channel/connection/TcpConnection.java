@@ -4,6 +4,7 @@ import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
+import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.SneakyThrows;
@@ -22,6 +23,16 @@ public class TcpConnection {
     public EventLoopGroup group;
 
     private Consumer<byte[]> onMessage;
+
+    public TcpConnection onMessage(Consumer<byte[]> onMessage){
+        this.onMessage = onMessage;
+        return this;
+    }
+
+    public void connect(InetSocketAddress address){
+        this.group = new NioEventLoopGroup();
+        this.connect(address,this.group);
+    }
 
     @SneakyThrows
     public void connect(InetSocketAddress address, EventLoopGroup group){
@@ -49,6 +60,10 @@ public class TcpConnection {
 
     public void publish(byte[] bytes){
         this.channel.writeAndFlush(Unpooled.copiedBuffer(bytes));
+    }
+
+    public void close(){
+        Optional.ofNullable(this.group).ifPresent(EventLoopGroup::shutdownGracefully);
     }
 
 }
