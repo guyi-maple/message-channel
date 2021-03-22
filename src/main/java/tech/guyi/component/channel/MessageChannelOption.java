@@ -11,7 +11,7 @@ import java.util.function.Function;
 /**
  * 消息管道配置项
  * @author guyi
- * @date 2021/1/12 14:10
+ * @version 2021/1/12 14:10
  */
 @Getter
 public class MessageChannelOption<T> {

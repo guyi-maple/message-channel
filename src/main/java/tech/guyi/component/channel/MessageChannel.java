@@ -9,7 +9,7 @@ import java.util.Optional;
 /**
  * 消息管道抽象
  * @author guyi
- * @date 2021/1/12 12:57
+ * @version 2021/1/12 12:57
  */
 public interface MessageChannel {
 
@@ -69,9 +69,9 @@ public interface MessageChannel {
     void publish(InetSocketAddress target, byte[] bytes);
 
     /**
-     * 发布消息 <br />
-     * 当为UDP管道时表示广播消息 <br />
-     * 当为TCP管道时表示给所有客户端发送消息 <br />
+     * <p>发布消息</p>
+     * <p>当为UDP管道时表示广播消息</p>
+     * <p>当为TCP管道时表示给所有客户端发送消息</p>
      * @param bytes 消息内容
      */
     void publish(byte[] bytes);

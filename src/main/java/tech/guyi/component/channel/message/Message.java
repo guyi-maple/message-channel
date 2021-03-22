@@ -1,7 +1,6 @@
 package tech.guyi.component.channel.message;
 
 import io.netty.channel.ChannelHandlerContext;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.net.InetSocketAddress;
@@ -11,9 +10,8 @@ import java.nio.charset.StandardCharsets;
 /**
  * 消息实体
  * @author guyi
- * @date 2021/1/12 13:12
+ * @version 2021/1/12 13:12
  */
-@AllArgsConstructor(staticName = "of")
 public class Message {
 
     /**
@@ -37,6 +35,14 @@ public class Message {
      */
     private final MessageReplier replier;
 
+
+    public Message(byte[] content, InetSocketAddress source, ChannelHandlerContext context, MessageReplier replier) {
+        this.content = content;
+        this.source = source;
+        this.context = context;
+        this.replier = replier;
+    }
+
     /**
      * 向来源地址回复消息
      * @param bytes 回复的消息内容
@@ -55,13 +61,15 @@ public class Message {
     }
 
     /**
-     * 将消息内容转为字符串 <br />
-     * 字符编码使用UTF-8
+     * <p>将消息内容转为字符串</p>
+     * <p>字符编码使用UTF-8</p>
      * @return 字符串
      */
     public String toString(){
         return this.toString(StandardCharsets.UTF_8);
     }
 
-
+    public static Message of(byte[] content, InetSocketAddress source, ChannelHandlerContext context, MessageReplier replier) {
+        return new Message(content, source,context,replier);
+    }
 }

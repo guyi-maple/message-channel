@@ -14,7 +14,7 @@ import java.net.InetSocketAddress;
 
 /**
  * @author guyi
- * @date 2021/1/12 12:58
+ * @version 2021/1/12 12:58
  */
 public class UdpMessageChannel extends AbstractMessageChannel {
 

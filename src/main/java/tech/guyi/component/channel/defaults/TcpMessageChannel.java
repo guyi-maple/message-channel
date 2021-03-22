@@ -20,7 +20,7 @@ import java.util.Optional;
 /**
  * TCP消息管道
  * @author guyi
- * @date 2021/1/12 15:50
+ * @version 2021/1/12 15:50
  */
 public class TcpMessageChannel extends AbstractMessageChannel {
 
@@ -71,7 +71,7 @@ public class TcpMessageChannel extends AbstractMessageChannel {
                             }
 
                             @Override
-                            public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+                            public void channelRead(ChannelHandlerContext ctx, Object msg) {
                                 // 从配置项中获取消息到达处理器, 存在则传入消息
                                 getOption(MessageChannelOption.ON_MESSAGE).ifPresent(onMessage -> {
                                     ByteBuf buffer = (ByteBuf) msg;

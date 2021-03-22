@@ -9,11 +9,11 @@ import java.net.InetSocketAddress;
 import java.util.Optional;
 
 /**
- * 树状消息管道 <br />
- * 收到的UDP消息转发到上级节点 <br />
- * 上级节点发送的消息以UDP方式广播到局域网, 并转发到下级节点 <br />
+ * <p>树状消息管道</p>
+ * <p>收到的UDP消息转发到上级节点</p>
+ * <p>上级节点发送的消息以UDP方式广播到局域网, 并转发到下级节点</p>
  * @author guyi
- * @date 2021/1/12 19:59
+ * @version 2021/1/12 19:59
  */
 public class TreeMessageChannel extends AbstractMessageChannel {
 

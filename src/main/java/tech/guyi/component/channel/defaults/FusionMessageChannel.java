@@ -8,7 +8,7 @@ import java.util.Optional;
 
 /**
  * @author guyi
- * @date 2021/1/12 17:31
+ * @version 2021/1/12 17:31
  */
 public class FusionMessageChannel extends AbstractMessageChannel {
 

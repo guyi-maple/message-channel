@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 
 /**
  * @author guyi
- * @date 2021/1/12 17:55
+ * @version 2021/1/12 17:55
  */
 public class TcpConnection {
 
